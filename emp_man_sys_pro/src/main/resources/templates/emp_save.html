@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <section>
+   
+        <div class="container p-5">
+            <div class="row mb-5">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <p class="fs-4"> Add Emp</p>
+                            <th:block th:if="${session.msg}">
+                                <p class="text-center text-success fs-4">[[${session.msg}]]</p>
+                                <th:block th:text="${@empServiceImpl.removeSessionMessage()}">
+
+                                </th:block>
+
+                            </th:block>
+                        </div>
+                        <div class="card-body">
+                            <form action="/saveEmp" method="post">
+                                <div class="mb-3">
+                                  <label for="exampleInputmame1" class="form-label">Full name</label>
+                                  <input type="text" class="form-control" name="name">
+                                  
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" name="email">
+                                  </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputmame1" class="form-label">address</label>
+                                    <input type="text" class="form-control" name="address">
+                                    
+                                </div>
+
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                                  <input type="password" class="form-control" name="password">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputGender1" class="form-label">Select Gender</label>
+                                <div class="form-check form-check-inline mb-3">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
+                                    <label class="form-check-label" for="inlineRadio1">male</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+                                    <label class="form-check-label" for="inlineRadio2">female</label>
+                                  </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-center">Submit</button>
+                              </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
